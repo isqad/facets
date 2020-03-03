@@ -67,12 +67,14 @@ class Hash
 end
 
 class String
+  WHITESPACE_RE = /\S/.freeze
+  private_constant :WHITESPACE_RE
   # Is this string just whitespace?
   #
   #   "abc".blank?  #=> false
   #   "   ".blank?  #=> true
   def blank?
-    /\S/ !~ self
+    WHITESPACE_RE !~ self
   end
 end
 
